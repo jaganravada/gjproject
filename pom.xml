@@ -5,12 +5,12 @@
 
       <modelVersion>4.0.0</modelVersion>
 
-      <groupId>com.onlinereservation</groupId>
-      <artifactId>onlineresrvation</artifactId>
+      <groupId>com.gjproject</groupId>
+      <artifactId>gjproject</artifactId>
       <version>1.0-SNAPSHOT</version>
       <packaging>war</packaging>
 
-      <name>onlinereservation  Maven Webapp</name>
+      <name>gjproject  Maven Webapp</name>
       <url>http://maven.apache.org</url>
 
       <dependencies>
@@ -22,7 +22,7 @@
         </dependency>
 </dependencies>
 <build>
-        <finalName>onlineresevation</finalName>
+        <finalName>gjproject</finalName>
 </build>
     </project>
              
