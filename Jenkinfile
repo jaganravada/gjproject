@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    //tools {
+        //       maven 'maven3.6'
+      //   }
+  // environment 
+    // {
+    //  M2_INSTALL = "/home/gaut/distros/apache-maven-3.6.3/bin/mvn"
+    // }
+    stages {
+
+        stage('Clone-Repo') {
+
+                steps {
+                checkout scm
+                 }
+                        }
+        stage('Build') {
+
+                 steps {
+                     sh 'mvn install -DskipTests'
+
+                     }
+                 }
+
+        stage('Unit Tsets') {
+                 steps {
+                     sh 'mvn surefire:test'
+
+                   }
+                }
+        stage('Deployment') {
+
+                  steps {
+
+               print "Deployment is Done!"
+              sh 'sshpass -p "gamut" scp target/gamutkart.war gamutguru@172.17.0.3:/home/gamutguru/distros/apache-tomcat-8.5.56/webapps'
+               sh 'sshpass -p "gamut" ssh  gamutguru@172.17.0.3 "JAVA_HOME=/home/gamutguru/distros/jdk1.8.0_251" "/home/gamutguru/distros/apache-tomcat-8.5.56/bin/startup.sh"'
+
+                    }
+}
+}
+                }
+        
+
+
